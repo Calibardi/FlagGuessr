@@ -24,7 +24,6 @@ struct HomeView: View {
                 .ignoresSafeArea()
             VStack {
                 Spacer()
-                
                 Text("Guess the flag")
                     .font(.largeTitle.weight(.bold))
                     .foregroundStyle(.white)
@@ -73,11 +72,16 @@ struct HomeView: View {
                 .shadow(radius: 10)
                 
                 Spacer()
-                Spacer()
                 
-                Text("Score: ???")
-                    .font(.title.bold())
-                    
+                ZStack {
+                    Text("Score: ???")
+                        .font(.title.bold())
+                        .padding()
+                }
+                .frame(width: 300, height: 60)
+                .background(.regularMaterial)
+                .clipShape(.rect(cornerRadius: 20))
+                
                 Spacer()
             }
         }.alert(scoreTitle, isPresented: $showingScore) {
