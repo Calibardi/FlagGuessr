@@ -15,7 +15,7 @@ import SwiftUI
         {
             Did not use an alert, but a button, that is shown if certain conditions are met. Tapping it will restart score and questions
         }
- 
+ 4. Replace the Image view used for flags with a new FlagImage() view that renders one flag image using the specific set of modifiers we had.
  */
 
 struct HomeView: View {
@@ -182,9 +182,7 @@ private extension HomeView {
             Button {
                 didTapFlagButton(number)
             } label: {
-                Image(countries[number])
-                    .clipShape(.rect(cornerRadius: 10))
-                    .shadow(radius: 20)
+                FlagImage(resourceName: countries[number])
             }
             .disabled(gameIsCompleted)
         }
